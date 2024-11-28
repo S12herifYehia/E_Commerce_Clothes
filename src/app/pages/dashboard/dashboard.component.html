@@ -1,0 +1,71 @@
+<app-create-product
+  *ngIf="ShowCreateProduct"
+  (closeCreateProduct)="closeCreateProduct($event)"
+  (submitData)="onSubmit($event)"
+  [isEditMode]="isEditmode"
+  [selectDataForm]="selectData"
+></app-create-product>
+
+<app-show-details *ngIf="showDetails" 
+
+(showDetails)="closeProductDetails()"
+[DetailsData]="detailsData"
+> </app-show-details>
+<!-- (AddPhoto)="onFileImage($event)" -->
+<main class="dashboard">
+  <app-spinner *ngIf="showSpinner"></app-spinner>
+  <!-- <div class="container"> -->
+  <aside class="sidebar" [ngClass]="{ active: isMenu }">
+    <div class="menu_icon" (click)="isMenu = !isMenu">
+      <i class="fa-solid fa-bars" [ngClass]="{ 'fa-xmark': isMenu }"></i>
+    </div>
+    <div class="logo">
+      <img src="assets/about/logo.PNG" alt="logo" />
+      <h3>RunX</h3>
+    </div>
+    <button class="create_product" (click)="showCreate()">CreateProduct</button>
+    <button class="create_product" (click)="clearAllData()">
+      Clear All Data
+    </button>
+  </aside>
+
+  <div class="right">
+    <div class="head">Dashboard Shop Clothes</div>
+
+    <h2 *ngIf="products.length == 0" class="no_product">No Product</h2>
+
+    <div class="body">
+      <div class="items">
+        <div class="item" *ngFor="let item of products">
+          <img [src]="item.image" alt="access" />
+          <div class="content">
+            <h2>{{ item.title }}</h2>
+            <p>
+              {{ item.desc }}
+            </p>
+
+            <div class="price_discount">
+              <div class="price">
+                Price : <span>{{ item.price | currency : "USD" }}</span>
+              </div>
+              <div class="discount">discount :<span> 20%</span></div>
+            </div>
+
+            <div class="icon">
+              <button class="delete" (click)="deleteProduct(item.id)">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <button class="edit" (click)="editProduct(item.id)">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </button>
+              <button class="details" (click)="showProductDetails(item.id)">
+                <i class="fa-solid fa-circle-info"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</main>

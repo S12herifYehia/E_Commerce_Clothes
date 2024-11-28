@@ -1,0 +1,64 @@
+// Colors
+$main_color:#000000;
+$alt_color:#ffffff;
+$bg_body:#F1F1F1;
+$bg_head:linear-gradient(to bottom, #04364A, #1e3c72);
+$danger_color:#FF0000;
+$text_light:#666666;
+$text_dark:#333333;
+$primary_color: #FF7043; /* لون رئيسي (يمكن استخدامه في الأزرار أو الروابط) */
+$secondary_color: #1E3C72; /* لون ثانوي (قد يكون للروابط أو التأثيرات) */
+$border_color_light: #DDDDDD; /* لون حدود فاتح */
+$border_color_dark: #444444; 
+$bg_footer: #EEEEEE; /* خلفية الفوتر */
+$bg_button: #FF7043; /* خلفية الأزرار */
+$box_shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف للأزرار أو العناصر */
+$text_shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* ظل خفيف للنصوص */
+$border-radius-small: 4px;
+$border-radius-medium: 8px;
+$border-radius-large: 12px;
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// font _ Fonts 
+// Text
+$font-size-mobile: 0.8rem;
+$font-size-tablet: 1rem;
+$font-size-desktop: 1.2rem;
+
+$font_family_title:"Poppins", serif;
+
+$font_family_text:"Roboto", sans-serif ;
+// title
+$font-size-h1: clamp(2rem, 5vw + 2rem, 4rem); // العنوان الرئيسي
+$font-size-h2: clamp(1.5rem, 4vw + 1.5rem, 3rem); // العنوان الثانوي
+$font-size-h3: clamp(1.2rem, 3vw + 1.2rem, 2.5rem); // العنوان الفرعي
+$font-size-h4: clamp(1.2rem, 3vw + 1.2rem, 1.5rem); // العنوان الفرعي
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$line-height: 1.6;
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// margin
+
+$space-small: 8px;     /* مسافة صغيرة */
+$space-medium: 16px;   /* مسافة متوسطة */
+$space-large: 32px;    /* مسافة كبيرة */
+$space-xlarge: 48px;
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// opacity
+
+$opacity-light: 0.1;   /* شفافية خفيفة */
+$opacity-medium: 0.5;  /* شفافية متوسطة */
+$opacity-dark: 0.8;
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// transition
+$transition-fast: 0.2s ease;
+$transition-medium: 0.5s ease;
+$transition-slow: 1s ease;
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

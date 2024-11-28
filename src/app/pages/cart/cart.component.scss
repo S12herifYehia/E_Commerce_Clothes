@@ -1,0 +1,149 @@
+@import "../../../styles/main";
+
+.cart {
+  .container {
+    padding-top: 10px;
+    @include flex-container(row, space-between, flex-start);
+    gap: 20px;
+
+    .left {
+      width: 65%;
+
+      .head {
+        @extend .flex-align-center;
+        padding: 20px 0px;
+        border-bottom: 1px solid $border_color_dark;
+        gap: 16px;
+        cursor: pointer;
+
+        i {
+          font-size: $font-size-desktop;
+        }
+        h2 {
+          font-size: $font-size-h3;
+        }
+      }
+
+      .body {
+        padding: 20px 0px;
+
+        h3 {
+          font-size: $font-size-desktop;
+          margin-bottom: 10px;
+        }
+      }
+
+      .foot {
+        .foot_box {
+          width: 100%;
+          height: 70px;
+          // background-color: red;
+          box-shadow: $box_shadow;
+          padding: 10px;
+          border-radius: $border-radius-medium;
+          @include flex_container(row, space-between, center);
+
+          margin-bottom: 16px;
+        }
+
+        .left_foot {
+          @extend .flex-align-center;
+          gap: 16px;
+
+          img {
+            width: 40px;
+          }
+        }
+
+        .right_foot {
+          @extend .flex-align-center;
+          gap: 20px;
+          p {
+            font-size: $font-size-tablet;
+          }
+          i {
+            font-size: $font-size-tablet;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .right {
+        box-shadow: $box_shadow;
+      padding: 10px;
+      border-radius: $border-radius-medium;
+      .head {
+        @include flex_container(row, space-between, center);
+
+        h4 {
+          font-size: $font-size-desktop;
+        }
+        img {
+          width: 30px;
+          border-radius: $border-radius-small;
+        }
+      }
+
+      .body {
+        form {
+          h5 {
+            font-size: $font-size-tablet;
+            margin: 20px 0px;
+          }
+
+          .items {
+            @include flex-container(row, center, center);
+            @include direction("bottom", 20px);
+            // cursor: pointer;
+            img {
+              cursor: pointer;
+            }
+          }
+
+          .box {
+            label {
+              margin-block: 10px;
+            }
+
+            input {
+              padding-left: 10px;
+            }
+          }
+
+          hr {
+            width: 100%;
+            height: 1px;
+            background-color: $border_color_dark;
+            margin: 20px 0px;
+          }
+
+          .totals {
+            div {
+              @include flex-container(row, space-between, center);
+              margin: 10px 0px;
+              h4 {
+                font-size: $font-size-tablet;
+              }
+              p {
+                font-size: $font-size-tablet;
+              }
+            }
+          }
+
+          button{
+            // display: flex;
+            @include flex-container(row,center,center);
+
+            width: 100%;
+            text-align: center;
+            gap: 16px;
+            i{
+                font-size: $font-size-tablet;
+            }
+          }
+        }
+      }
+    }
+  }
+}

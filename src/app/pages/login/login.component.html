@@ -1,0 +1,71 @@
+<main class="landing">
+  <div class="container">
+    <div class="forms">
+      <div class="signup">
+        <form #form_signUp="ngForm" (ngSubmit)="onSignUp(form_signUp)">
+          <h2>Sign Up</h2>
+          <input
+            type="email"
+            placeholder="Enter Your Email"
+            #sign_email="ngModel"
+            email
+            ngModel
+            name="email"
+            required
+
+          />
+          <ng-container *ngIf="form_signUp.submitted || (sign_email.invalid && sign_email.touched)">
+            <small *ngIf="sign_email.errors?.['required']"
+              >Email is Required
+            </small>
+            <small *ngIf="sign_email.errors?.['email']"
+              >Please enter a valid email address.</small
+            >
+          </ng-container>
+
+          <input
+            type="password"
+            placeholder="Enter Your Password"
+            #sign_password="ngModel"
+            required
+            ngModel
+            name="password"
+            minlength="6"
+          />
+
+
+          <ng-container *ngIf="form_signUp.submitted || (sign_password.invalid && sign_password.touched)">
+            <small *ngIf="sign_password.errors?.['required']"
+              >Password is Required
+            </small>
+            <small *ngIf="sign_password.errors?.['minlength']">
+                Password must be at least 6 characters long.
+              </small>
+          </ng-container>
+          <button type="submit">SignUp</button>
+        </form>
+      </div>
+
+      <div class="login">
+        <form #login_form="ngForm" (ngSubmit)="SignIn(login_form)">
+          <h2>Login In</h2>
+          <input type="email" placeholder="Enter Your Email" name="email" #email_login="ngModel" ngModel email required=""  />
+
+
+          <ng-container *ngIf="email_login.invalid && email_login.touched">
+            <small *ngIf="email_login.errors?.['required']">This Is Required</small>
+            <small *ngIf="email_login.errors?.['email']">Please enter a valid email address.</small>
+
+          </ng-container>
+          <input type="password" placeholder="Enter Your Password"  name="password" #password_login="ngModel" ngModel required minlength="6"  />
+          <ng-container *ngIf="password_login.invalid && password_login.touched">
+            <small *ngIf="password_login.errors?.['required']">This Is Required</small>
+            <small *ngIf="password_login.errors?.['minlength']">Password must be at least 6 characters long.</small>
+
+          </ng-container>
+          <button type="login">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,73 @@
+@import '../../../../styles/main';
+
+.popup{
+    width: 100%;
+    // height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 3000000;
+
+
+
+    @include flex-container(row,center,center);
+
+
+    .close_popup{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: $main_color;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $alt_color;
+        @include flex-container();
+        cursor: pointer;
+        i{
+            font-size: $font-size-desktop;
+        }
+    }
+    .boxes{
+        width: 500px;
+        min-height: 100px;
+        background-color: $alt_color;
+        border-radius: $border-radius-medium;
+        @include direction_inside('padding',15px);
+        .item{
+            text-align: center;
+            img{
+                width: 150px;
+                margin: auto;
+                display: block;
+                border-radius: $border-radius-medium;
+            }
+
+            .content{
+              h2{
+                margin-top: 10px;
+              }
+                p{
+                    margin: 20px 0px;
+                }
+            }
+
+            .dis_price{
+                @include flex-container(row,space-between,center);
+                p{
+                    font-size:$font-size-desktop;
+                
+                    span{
+                        color: $danger_color;
+                       font-weight: bold;
+                    }
+                }
+            }
+        }
+
+    }
+}

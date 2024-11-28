@@ -1,0 +1,100 @@
+// يكون فيه الداول مثل الانيمشن
+// والمزج زي البوردر ريدوس
+
+@mixin flex_container($direction: row, $justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  flex-direction: $direction;
+  align-items: $align;
+}
+
+// استخدمه كالتالي
+
+// .container{
+//     @include flex_container(row,space-between,center)
+// }
+
+//
+
+@mixin direction($direction, $size) {
+  @if $direction == "left" {
+    margin-left: $size;
+  } @else if $direction == "top" {
+    margin-top: $size;
+  } @else if $direction == "bottom" {
+    margin-bottom: $size;
+  } @else if $direction == "right" {
+    margin-right: $size;
+  } @else {
+    margin: $size;
+  }
+}
+
+@mixin direction_inside($direction, $size) {
+  @if $direction == "left" {
+    padding-left: $size;
+  } @else if $direction == "top" {
+    padding-top: $size;
+  } @else if $direction == "bottom" {
+    padding-bottom: $size;
+  } @else if $direction == "right" {
+    padding-right: $size;
+  } @else {
+    padding: $size;
+  }
+}
+
+@mixin respon-to($device) {
+  @if $device == "mobile" {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $device == "tablet" {
+    @media (min-width: 768px) and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $device == "desktop" {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+}
+
+// الانيمشن
+
+
+
+@mixin animationLogo($ZoomIn,$from,$to){
+  @keyframes #{$ZoomIn} {
+    0%{
+      transform: scale($from)
+    }
+    100%{
+      transform: scale($to);
+    }
+    
+  }
+}
+
+
+@mixin animationRotate($rotate,$from,$to){
+  @keyframes #{$rotate} {
+    0%{
+      transform: rotate($from);
+    }
+    100%{
+      transform: rotate($to);
+    }
+    
+  }
+}
+
+
+// Transform Center
+
+@mixin transform(){
+  position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+}

@@ -1,0 +1,183 @@
+// علشان اقدر احسب البكسل 
+// 5vw 5%
+// 5/100 * 1200
+// 1200 مساحه الشاشه 
+ 
+ // $font-size-small: 0.9rem; // 14 px
+// $font-size-medium: 1rem; // 16px
+// $font-size-large: 1.5rem;  // 24px
+// $font-size-xlarge: 2rem; // 32px
+// Text
+
+
+// clamp(min,preferred,max)
+
+
+
+// min اقل قيمه توصلها
+// preferred  القيمه الحاليه الافتراضيه
+// max اعلي قيمه توصلها 
+
+
+
+Text 
+$font-size-mobile: 0.8rem;
+$font-size-tablet: 1rem;
+$font-size-desktop: 1.2rem;
+
+
+// 
+// title
+$font-size-h1: clamp(2rem, 5vw + 2rem, 4rem); // العنوان الرئيسي
+$font-size-h2: clamp(1.5rem, 4vw + 1.5rem, 3rem); // العنوان الثانوي
+$font-size-h3: clamp(1.2rem, 3vw + 1.2rem, 2.5rem); // العنوان الفرعي
+
+
+$font_family_title:"Poppins", serif;
+
+$font_family_text:"Roboto", sans-serif ;
+// title
+
+
+
+
+
+
+
+
+
+
+اللوجو 
+RunX
+
+
+
+  animation: logoFadeIn 2s linear infinite alternate;
+            @keyframes logoFadeIn {
+              0% {
+                opacity: 0;
+                transform: translateY(-20px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+        
+
+
+
+التمبلت دريفن فورم 
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <h2>Create Product</h2>
+    <div class="img">
+      <label for="img">Choose Image</label>
+      <input
+        type="file"
+        style="display: none"
+        name="image"
+        ngModel
+        #img="ngModel"
+        id="img"
+        required
+        aria-describedby="imageError"
+      />
+
+      <ng-container *ngIf="f.submitted || (img.invalid && img.touched)">
+        <small id="imageError" *ngIf="img.errors?.['required']"
+          >Image Is Required.</small
+        >
+      </ng-container>
+    </div>
+
+    <div class="title">
+      <label for="title">Title Product</label>
+      <input
+        type="text"
+        placeholder="Title Product"
+        id="title"
+        name="title"
+        ngModel
+        #title="ngModel"
+        required
+        minlength="4"
+        aria-describedby="titleError"
+      />
+
+      <ng-container *ngIf="f.submitted || (title.invalid && title.touched)">
+        <small id="titleError" *ngIf="title.errors?.['required']"
+          >Title Is Required.</small
+        >
+        <small id="titleError" *ngIf="title.errors?.['minlength']"
+          >Title must be at least
+          {{ title.errors?.['minlength'].requiredLength }} characters
+          long.</small
+        >
+      </ng-container>
+    </div>
+
+    <div class="price_discount" ngModelGroup="price_discount">
+      <div class="price">
+        <label for="price">Price</label>
+        <input
+          type="price"
+          id="price"
+          placeholder="Enter Your Price"
+          name="price"
+          ngModel
+          #price="ngModel"
+          required
+          [ngModelOptions]="{ updateOn: 'blur' }"
+        />
+        <ng-container *ngIf="f.submitted || (price.invalid && price.touched)">
+            <small id="priceError" *ngIf="price.errors?.['required']"
+              >price Is Required.</small
+            >
+
+            <small id="priceError" *ngIf="price.errors?.['invalidNumber']">Only numbers are allowed.</small>
+          </ng-container>
+      </div>
+
+      <div class="discount">
+        <label for="Discount">Discount</label>
+        <input
+          type="text"
+          id="Discount"
+          placeholder="Enter Your Discount"
+          name="discount"
+          ngModel="0"
+          #discount="ngModel"
+          
+          required
+        />
+
+
+
+        <ng-container *ngIf="f.submitted || (discount.invalid && discount.touched)">
+            <small id="discountError" *ngIf="discount.errors?.['required']"
+              >discount Is Required.</small
+            >
+          </ng-container>
+      </div>
+    </div>
+
+    <div class="desc">
+      <label for="desc">Details Product</label>
+      <textarea
+        id="desc"
+        placeholder="Details Product"
+        name="desc"
+        ngModel
+        #desc="ngModel"
+        required
+      ></textarea>
+
+      <ng-container *ngIf="f.submitted || (desc.invalid && desc.touched)">
+        <small id="descError" *ngIf="desc.errors?.['required']"
+          >desc Is Required.</small
+        >
+      </ng-container>
+    </div>
+
+    <button type="submit">Create Product</button>
+  </form>

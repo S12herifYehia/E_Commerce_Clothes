@@ -1,0 +1,110 @@
+@import '../../../../styles/main';
+
+.popup{
+    width: 100%;
+    // height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    z-index: 10000;
+
+    @include flex_container(row,center,center);
+
+
+    .close_popup{
+        position: absolute;
+        right: 10px;
+        top: 30px;
+       
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        border-radius: 50%;
+        background-color: $alt_color;
+        text-align: center;
+  
+
+        &:hover{
+            background-color: #f6f6f6;
+        }
+        
+        i{
+            font-size: $font-size-h4;
+            cursor: pointer;
+            // color: $alt_color;
+
+        }
+    }
+
+
+
+    form{
+        width: 400px;
+        min-height: 300px;
+        min-height: 300px;
+
+        background-color: #ffffff91;
+        padding: 15px;
+        border-radius: $border-radius-medium;
+        h2{
+            font-size: $font-size-h3;
+            text-align: center;
+            margin-bottom: 15px;
+          
+            
+        }
+
+        .img{
+            label{
+                width: 100%;
+                cursor: pointer;
+    height: 40px;
+    background: $bg_head;
+    color: $alt_color;
+    
+    text-align: center;
+    line-height: 40px;
+            }
+        }
+
+
+        input,textarea,select{
+            padding-left: 10px;
+        }
+
+
+
+
+        
+
+        // .catogery{
+            
+        //     select{
+        //         width: 100%;
+
+        //     }
+        // }
+
+
+        label {
+            margin:4px 0px;
+            font-size: $font-size-desktop;
+        }
+
+
+        button{
+            width: 100%;
+            margin-top: 10px;
+        }
+
+
+        small{
+            color: #9b0000;
+            font-size: $font-size-desktop;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+// يحتوي علي الميديا كلها 
+.container{
+    margin: 0px auto !important;
+    @media (min-width:768px){
+        width: 720px !important;
+
+    }
+
+
+    @media (min-width:992px){
+        width: 960px !important;
+    }
+
+
+    @media (min-width:1200px){
+        width: 1140px !important;
+    }
+}

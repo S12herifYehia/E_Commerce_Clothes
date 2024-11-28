@@ -1,0 +1,142 @@
+@import "../../../styles/main";
+
+.dashboard {
+  @include flex_container(row, flex-end, flex-start);
+  gap: 16px;
+  .sidebar {
+    width: 20%;
+    position: fixed;
+    left: -20%;
+    z-index: 100000;
+
+    bottom: 0;
+    height: calc(100vh - 70px);
+    background: $bg_head;
+    padding: 15px ;
+    transition: $transition-medium;
+    &.active{
+        left: 0;
+    }
+
+    .menu_icon{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        padding: 5px;
+        text-align: center;
+        right: -50px;
+        top: 60px;
+        border-radius: 0px $border-radius-small $border-radius-small 0px;
+        cursor: pointer;
+        background:$bg_head;
+        
+        i{
+            color: $alt_color;
+            font-size:$font-size-h3;
+        }
+    }
+
+    .logo{
+        @extend .flex-align-center;
+        gap: 16px;
+        img {
+            width: 50px;
+            border-radius: 50%;
+      
+          }
+        h3{
+            color: $alt_color;
+        }
+    }
+
+    button{
+        width: 100%;
+        margin: 15px 0px;
+    }
+
+   
+  }
+
+
+  .right{
+    padding: 20px;
+    border: 2px solid $border_color_dark;
+    width: 76%;
+    border-radius: $border-radius-medium;
+    @include direction('top',10px);
+
+
+
+    
+    .no_product{
+        text-align: center;
+        font-size: $font-size-h3;
+        padding: 20px 0px;
+      
+        
+    }
+
+
+
+    .head{
+        width: 100%;
+        height: 60px;
+        background: $bg_head;
+        text-align: center;
+        color: $alt_color;
+        font-size: $font-size-h3;
+        border-radius: $border-radius-medium;
+        @include direction('bottom',10px);
+    }
+
+
+    .body{
+
+        p{
+            @include direction('bottom',10px);
+        }
+        .price_discount{
+
+            @include flex_container(row,space-between,center);
+           
+
+            @include direction('bottom',10px);
+
+            .price , .discount{
+
+                font-size: $font-size-desktop;
+
+                span{
+                    color: $danger_color;
+
+
+                    font-weight: bold;
+                }
+
+            }
+            
+        }
+
+
+        .icon{
+            @include flex_container(row,center,center);
+        }
+
+
+
+        .items{
+            .item{
+                img{
+                    height: 340px;
+                }
+            }
+        }
+    }
+
+  }
+}
+
+
+
+

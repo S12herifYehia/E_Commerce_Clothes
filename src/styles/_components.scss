@@ -1,0 +1,149 @@
+// يحتوي علي تنسيقات الازرار والقوائم المنسدله
+// والنماذج
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font_family_title;
+}
+p {
+  line-height: $line-height;
+  color: $text_dark;
+}
+
+button {
+  border-radius: $border-radius-small;
+  background-color: $primary_color;
+  width: 80px;
+  height: 40px;
+  line-height: 38px;
+  font-size: $font-size-desktop;
+  border: 1px solid $border_color_light;
+  color: $alt_color;
+  cursor: pointer;
+  transition: $transition-medium;
+  &:hover {
+    background-color: darken($color: $primary_color, $amount: 10%);
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+section {
+  padding: 50px 0px;
+}
+
+.glopal_heading {
+  width: 100%;
+  text-align: center;
+  h2 {
+    font-size: $font-size-h2;
+    margin-inline: auto;
+    // @include direction("bottom", 20px);
+    position: relative;
+    width: 400px;
+    height: 80px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $text_dark;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -9px;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid $text_dark;
+    }
+  }
+  p {
+    width: 700px;
+    @include direction("margin", auto);
+    font-size: $font-size-desktop;
+    margin-block: 20px;
+  }
+}
+
+// items Shoes_Trunks
+.items {
+  @extend .grid_system;
+
+  .item {
+    box-shadow: $box_shadow;
+    padding: 10px;
+    border-radius: $border-radius-medium;
+    .content {
+      padding: 5px;
+      h3 {
+        font-size: $font-size-h4;
+        margin-block: 10px;
+      }
+
+      p {
+        @include direction("bottom", 15px);
+      }
+
+      .add_price {
+        @include flex-container(row, space-between, center);
+        .addCart {
+          width: 115px;
+          font-size: $font-size-desktop;
+        }
+
+        .price {
+          color: $danger_color;
+          font-size: $font-size-desktop;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  img {
+    width: 100%;
+    border-radius: $border-radius-medium $border-radius-medium 0px 0px;
+    &.img_size {
+      height: 339px;
+    }
+  }
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+
+  @include direction_inside("left", 35px);
+  border: 0;
+  border-radius: $border-radius-medium;
+  font-size: $font-size-desktop;
+  box-shadow: $box-shadow;
+  background-color: #f2f6f8;
+}
+
+input,select {
+  height: 40px;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}

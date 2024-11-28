@@ -1,0 +1,72 @@
+@import "../../../styles/main";
+
+
+header {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  background: $bg_head;
+  // position: fixed;
+  // left: 0;
+  // width: 100%;
+  // z-index: 20000;
+
+  .container {
+    @include flex_container(row, space-between, center);
+
+    .logo {
+      a {
+        $from: 0.8;
+$to: 1;
+        color: $alt_color;
+        font-size: $font-size-h3;
+        animation: ZoomIn 2s linear infinite alternate;
+        @include animationLogo(ZoomIn, $from, $to);
+      }
+    }
+
+    ul {
+      @extend .flex-align-center;
+      a {
+        color: $alt_color;
+        font-size: $font-size-desktop;
+        @include direction("left", 30px);
+
+        &.active {
+          color: #ffd700;
+        }
+      }
+    }
+
+    .btns {
+      @extend .flex-align-center;
+
+      .cart {
+        color: $alt_color;
+        @include direction("right", 20px);
+        font-size: $font-size-desktop;
+        @extend .flex-align-center;
+        position: relative;
+        width: 30px;
+        height: 27px;
+
+        .count {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 15px;
+          height: 15px;
+          background-color: $danger_color;
+          border-radius: 50%;
+          @extend .flex-align-center;
+          justify-content: center;
+          font-size: $font-size-mobile;
+        }
+      }
+    }
+  }
+
+  button{
+    margin: 0px 10px;
+  }
+}

@@ -1,0 +1,70 @@
+@import "../../../styles/main";
+.landing {
+  width: 100%;
+  height: calc(100vh - 70px);
+  // background: $bg_head;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    @include flex_container(row, center, center);
+  }
+  .forms {
+    width: 400px;
+    height: 396px;
+    border-radius: $border-radius-medium;
+    box-shadow: $box_shadow;
+    // background-color: red;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+
+    small{
+      color: $danger_color;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 5px 0px;
+    }
+
+    .login {
+      position: absolute;
+      left: 0;
+      top: 326px;
+      width: 100%;
+      background: $bg_head;
+      padding: 10px;
+      height: 100%;
+      border-radius: $border-radius-medium;
+      transition: $transition-medium;
+      h2 {
+        color: $alt_color;
+
+        
+      }
+      &:hover {
+        top: 73px;
+      }
+    }
+
+    form {
+      h2 {
+        font-size: $font-size-h3;
+        @include direction("bottom", 20px);
+        cursor: pointer;
+      }
+
+      display: flex;
+      flex-direction: column;
+
+      input {
+        margin: 15px 0px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

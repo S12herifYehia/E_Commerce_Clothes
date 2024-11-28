@@ -1,0 +1,80 @@
+@import "../../../styles/main";
+
+.contact {
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-color: #072144;
+  position: relative;
+  .container {
+    position: relative;
+    video {
+      width: 100%;
+      height: calc(100vh - 77px);
+      background-color: #05050530;
+
+
+      
+     
+    }
+
+    &:after{
+        content:'';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+
+      }
+
+    form {
+      @include transform();
+      z-index: 100000;
+
+      width: 400px;
+      height: 333px;
+     
+      background-color: #f2f6f826;
+      padding: 20px 10px;
+      border-radius: $border-radius-medium;
+
+      div{
+        width: 100%;
+        // background-color: red;
+        @include direction('bottom',15px);
+        position:relative;
+
+
+        label{
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            i{
+                font-size: $font-size-desktop;
+
+            }
+        }
+
+
+        &.msg{
+            label{
+                top: 18px;
+            }
+        }
+
+     
+
+
+      
+      }
+
+      button{
+        width: 100%;
+    }
+      
+    }
+  }
+}

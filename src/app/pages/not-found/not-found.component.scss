@@ -1,0 +1,15 @@
+
+@import '../../../styles/mixin';
+
+main{
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: black;
+    img{
+        width: 500px;
+        height: 600px;
+        @include transform();
+        z-index: 1000;
+        height: 500px;
+    }
+}

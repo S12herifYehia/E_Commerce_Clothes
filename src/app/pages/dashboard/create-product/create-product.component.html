@@ -1,0 +1,191 @@
+<div class="popup">
+  <div class="close_popup" (click)="closeCreate()">
+    <i class="fa-solid fa-xmark"></i>
+  </div>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <h2>{{isEditMode ? 'Create Product' : 'Update Product'}}</h2>
+
+    <!-- Image -->
+    <div class="img">
+      <label for="img">Choose Image</label>
+      <input
+        type="file"
+        style="display: none"
+        formControlName="image"
+        id="img"
+        aria-describedby="imageError"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+        #img
+      />
+      <ng-container
+        *ngIf="
+          productForm.get('image')?.invalid &&
+          (productForm.get('image')?.touched || submitted)
+        "
+      >
+        <small
+          id="imageError"
+          *ngIf="productForm.get('image')?.errors?.['required']"
+          >Image is required.</small
+        >
+      </ng-container>
+    </div>
+
+    <!-- Title -->
+    <div class="title">
+      <label for="title">Title Product</label>
+      <input
+        type="text"
+        placeholder="Title Product"
+        formControlName="title"
+        id="title"
+        aria-describedby="titleError"
+      />
+      <ng-container
+        *ngIf="
+          productForm.get('title')?.invalid &&
+          (productForm.get('title')?.touched || submitted)
+        "
+      >
+        <small
+          id="titleError"
+          *ngIf="productForm.get('title')?.errors?.['required']"
+          >Title is required.</small
+        >
+        <!-- <small
+          id="titleError"
+          *ngIf="productForm.get('title')?.errors?.['minlength']"
+        >
+          Title must be at least
+          {{ productForm.get('title')?.errors?.['minlength'].requiredLength }}
+          characters long.
+        </small> -->
+
+        <small
+          *ngIf="productForm.get('title')?.errors?.['noThreeConsecutiveLetters']"
+          >No three consecutive identical letters allowed.</small
+        >
+
+        <small
+          *ngIf="
+            productForm.get('title')?.hasError('numericOnly') &&
+            productForm.get('title')?.touched
+          "
+        >
+          Name cannot be numeric only
+        </small>
+      </ng-container>
+    </div>
+
+    <!-- Price and Discount Group -->
+    <div class="price_discount">
+      <div class="price">
+        <label for="price">Price</label>
+        <input
+          type="text"
+          formControlName="price"
+          placeholder="Enter Your Price"
+          id="price"
+          aria-describedby="priceError"
+        />
+        <ng-container
+          *ngIf="
+            productForm.get('price')?.invalid &&
+            (productForm.get('price')?.touched || submitted)
+          "
+        >
+          <small
+            id="priceError"
+            *ngIf="productForm.get('price')?.errors?.['required']"
+            >Price is required.</small
+          >
+          <small
+            id="priceError"
+            *ngIf="productForm.get('price')?.errors?.['pattern']"
+            >Only numbers are allowed.</small
+          >
+        </ng-container>
+      </div>
+
+      <div class="discount">
+        <label for="discount">Discount</label>
+        <input
+          type="text"
+          formControlName="discount"
+          placeholder="Enter Your Discount"
+          id="discount"
+          aria-describedby="discountError"
+        />
+        <ng-container
+          *ngIf="
+            productForm.get('discount')?.invalid &&
+            (productForm.get('discount')?.touched || submitted)
+          "
+        >
+          <small
+            id="discountError"
+            *ngIf="productForm.get('discount')?.errors?.['required']"
+            >Discount is required.</small
+          >
+          <small *ngIf="productForm.get('discount')?.errors?.['invalidpercent']"
+            >Discount must end with a '%'.</small
+          >
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="catogery">
+      <label for="cat">catogery</label>
+
+      <select formControlName="catogery" required id="cat">
+        <option value="" disabled="true" selected>select Catogery</option>
+        <option value="trunks">Trunks</option>
+        <option value="shoes">Shoes</option>
+        <option value="tshirt">Tshirt</option>
+        <option value="pant">PantS</option>
+        <option value="access">Access</option>
+      </select>
+    </div>
+    <!-- </label> -->
+    <ng-container
+      *ngIf="
+        productForm.get('catogery')?.invalid &&
+        (productForm.get('catogery')?.touched || submitted)
+      "
+    >
+      <small *ngIf="productForm.get('catogery')?.errors?.['required']"
+        >Catogery Is Required</small
+      >
+    </ng-container>
+
+    <!-- Description -->
+    <div class="desc">
+      <label for="desc">Details Product</label>
+      <textarea
+        formControlName="desc"
+        id="desc"
+        placeholder="Details Product"
+        aria-describedby="descError"
+      ></textarea>
+      <ng-container
+        *ngIf="
+          productForm.get('desc')?.invalid &&
+          (productForm.get('desc')?.touched || submitted)
+        "
+      >
+        <small
+          id="descError"
+          *ngIf="productForm.get('desc')?.errors?.['required']"
+          >Description is required.</small
+        >
+      </ng-container>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">
+      {{isEditMode ? 'Create Product' : 'Update Product'}}
+    </button>
+  </form>
+</div>

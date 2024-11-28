@@ -1,0 +1,24 @@
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="#">RunX</a>
+        </div>
+        <ul class="flex-align-center">
+            <li><a routerLink="home" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+            <li><a routerLink="about" [routerLinkActive]="'active'">About</a></li>
+            <li><a routerLink="contact" [routerLinkActive]="'active'">Contact</a></li>
+            <li><a routerLink="dashboard" [routerLinkActive]="'active'" *ngIf="!logg">Dashboard</a></li>
+        </ul>
+
+        <div class="btns">
+            <a routerLink="cart" class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="count">0</span>
+            </a>
+            <button class="login" (click)="showLogin()" *ngIf="logg">Login</button>
+            <button *ngIf="!logg" (click)="logout()">Logout</button>
+        </div>
+    </div>
+</header>
+
+
