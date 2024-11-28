@@ -4,6 +4,7 @@ import { ProductService } from '../../Services/product.service';
 import { Product } from '../../models/product';
 import { ErrorHandleServicesService } from '../../Services/error-handle-services.service';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
+
+
+  sub=new Subject();
+
+
+  subobs=this.sub.asObservable;
   productServices: ProductService = inject(ProductService);
   isMenu = false;
   ShowCreateProduct = false;
@@ -36,11 +43,7 @@ export class DashboardComponent {
   closeCreateProduct(value: any) {
     this.ShowCreateProduct = value;
     this.isEditmode=false
-
-    // this.selectData=[]
-
     this.selectData = {};
-
   }
 
 
@@ -112,6 +115,13 @@ this.errorhandle.error$.subscribe(error => {
   }
 
 
+  getAllHome(){
+    this.productServices.getAllHome().subscribe((data)=>{
+      console.log(data)
+    })
+  }
+
+
   deleteProduct(id:any){
     this.showSpinner=true;
 
@@ -120,19 +130,33 @@ this.errorhandle.error$.subscribe(error => {
     this.productServices.deleteProduct(id).subscribe((data)=>{
       this.showSpinner=false
       this.getAllData()
+      this.getAllHome();
+
     })
   }
 
 
 
+  // updateData(){
+  //   this.ProductService.editProduct(this.allProduct[this.allProduct.id],this.allProduct.id).subscribe((data)=>{
+  //     console.log(data);
+
+  //     this.allProduct=data
+
+  //   })
+
+  // }
+
 
   editProduct(id:any){
     this.selectData=this.products.find(x=>x.id == id)
+
+    this.sub.next(this.selectData);
+
+
     this.showCreate()
     this.isEditmode=false
-
     this.currentId=id
-
   }
 
 

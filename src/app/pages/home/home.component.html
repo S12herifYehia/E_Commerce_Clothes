@@ -73,21 +73,22 @@
     </div>
 
     <div class="items">
-      <article class="item">
-        <img src="assets/clothes/clo1/2.jpeg" alt="item" />
-        <div class="content">
-          <h3>SnowDrift Jacket</h3>
-          <p>
-            Perfect for keeping warm on cold days, winter jackets combine
-            comfort and style. Made of heat-insulating materials to give you
-            complete protection from cold weather.
-          </p>
+      <article class="item" *ngFor="let item of allProduct">
+        <ng-container *ngIf="item.catogery == 'trunks'">
+          <img [src]="item.image" alt="item" *ngIf="item.image"  />
+          <div class="content">
+            <h3>{{item.title}}</h3>
+            <p>
+            {{item.desc}}
+            </p>
 
-          <div class="add_price">
-            <button class="addCart">Add To Cart</button>
-            <span class="price">{{ 20 | currency }}</span>
+            <div class="add_price">
+              <button class="addCart">Add To Cart</button>
+              <span class="price">{{ 20 | currency }}</span>
+            </div>
           </div>
-        </div>
+        </ng-container>
+
       </article>
 <!--
       <article class="item">
@@ -167,24 +168,27 @@
     </div>
 
     <div class="items">
-      <article class="item">
-        <img src="assets/clothes/kotchee/1.jpeg" alt="item" />
-        <div class="content">
-          <h3>Nike Air Max</h3>
-          <p>
-            Sporty Kochi combines comfort and style thanks to Air technology
-            that provides excellent foot support and shock absorption. Ideal for
-            daily.
-          </p>
+      <article class="item" *ngFor="let item of allProduct">
 
-          <div class="add_price">
-            <button class="addCart">Add To Cart</button>
-            <span class="price">{{ 20 | currency }}</span>
+
+        <ng-container *ngIf="item.catogery == 'shoes' " >
+          <img [src]="item.image"  class="img_size" alt="item" />
+          <div class="content">
+            <h3>{{item.title}}</h3>
+            <p>
+            {{item.desc.substring(0,50)}}
+            </p>
+
+            <div class="add_price">
+              <button class="addCart">Add To Cart</button>
+              <span class="price">{{ 20 | currency }}</span>
+            </div>
           </div>
-        </div>
+        </ng-container>
+
       </article>
 
-      <article class="item">
+      <!-- <article class="item">
         <img src="assets/clothes/kotchee/2.jpeg" alt="item" />
         <div class="content">
           <h3>Adidas Ultraboost</h3>
@@ -232,7 +236,7 @@
             <span class="price">{{ 20 | currency }}</span>
           </div>
         </div>
-      </article>
+      </article> -->
     </div>
   </div>
 </section>

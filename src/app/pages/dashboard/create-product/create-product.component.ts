@@ -88,8 +88,7 @@ export class CreateProductComponent {
       };
       reader.readAsDataURL(file);
 
-      // إعادة تعيين المدخل بعد معالجة الملف
-      // this.onFileSelectedInput.nativeElement.value = ''; // إعادة تعيين القيمة إلى فارغة
+
     }
   }
 
@@ -102,7 +101,6 @@ export class CreateProductComponent {
         discount: this.selectDataForm.discount,
         catogery: this.selectDataForm.catogery,
         desc: this.selectDataForm.desc,
-        // image:this.selectDataForm.image
       });
       this.selectedFile = this.selectDataForm.image;
     }

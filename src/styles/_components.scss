@@ -89,6 +89,7 @@ section {
 
   .item {
     box-shadow: $box_shadow;
+    // width: 275px;
     padding: 10px;
     border-radius: $border-radius-medium;
     .content {
@@ -100,6 +101,7 @@ section {
 
       p {
         @include direction("bottom", 15px);
+        // word-wrap:break-word ;
       }
 
       .add_price {
